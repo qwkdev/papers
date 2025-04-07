@@ -15,7 +15,7 @@
 			--corner: 2vw;
 
 			width: 100vw;
-			height: 13vw;
+			height: 12vw;
 
 			display: grid;
 			grid-template-columns: 25vw 61vw 14vw;
@@ -274,236 +274,34 @@
 		#main {
 			width: 100vw;
 			overflow-x: hidden;
-			margin-top: 13vw; /* #top height */
-			min-height: calc(90vh - 13vw);
+			margin-top: 12vw; /* #top height */
+			min-height: calc(90vh - 12vw);
 
-			#hero {
-				width: 100vw;
-				height: 35vw;
-				position: relative;
-				margin-top: 1.5vw;
+			#name {
+				font-family: Arial;
+				font-weight: 600;
+				font-size: 5vw;
+				line-height: 5vw;
+				color: #fff;
 
-				h1 {
-					width: 60vw;
-					font-family: Arial;
-					font-weight: 600;
-					font-size: 7vw;
-					line-height: 7.2vw;
-					color: #fff;
-					margin: 0;
-					text-align: center;
+				margin: 4vw 3vw 0 3vw;
 
-					text-shadow: 0 0 2vw #ffffff33;
-
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-
-					&::selection {
-						background: #ffffff55;
-					}
+				&::selection {
+					background: #ffffff55;
 				}
 			}
 			#description {
 				font-family: Arial;
 				font-weight: 500;
-				font-size: 2.5vw;
-				line-height: 2.7vw;
+				font-size: 2vw;
+				line-height: 2.2vw;
 				color: #777;
 
 				margin: 3vw;
-				margin-top: 2.2vw;
 
 				&::selection, span::selection {
 					background: #77777755;
 				}
-			}
-
-			#reviews-wrapper {
-				--gap: 5vw;
-				--height: 20vh;
-
-				width: 100vw;
-				height: var(--height);
-
-				margin: 3.6vw 0 4vw 0;
-
-				position: relative;
-				overflow-x: hidden;
-				display: flex;
-				user-select: none;
-				gap: var(--gap);
-
-				&::before, &::after {
-					content: '';
-					position: absolute;
-					top: 0;
-					width: 3vw;
-					height: 100%;
-					z-index: 10;
-				}
-				&::before {
-					left: 0;
-					background: linear-gradient(to right, #141415ff, #14141500);
-				}
-				&::after {
-					right: 0;
-					background: linear-gradient(to left, #141415ff, #14141500);
-				}
-
-				.reviews {
-					flex-shrink: 0;
-					min-width: 100%;
-					display: flex;
-					gap: var(--gap);
-					width: fit-content;
-					animation: review-scroll 15s linear infinite;
-
-					.review {
-						--width: 40vh;
-						width: var(--width);
-						height: var(--height);
-
-						box-sizing: border-box;
-
-						background: rgba(245, 245, 255, 0.075);
-						border: .5vw solid rgba(255, 255, 255, 0.15);
-						border-radius: 2vw;
-
-						position: relative;
-
-						p {
-							font-family: Arial;
-							color: #fff;
-							font-size: calc(var(--height) * 0.1);
-							width: calc(var(--width) * 0.8);
-							height: calc(var(--height) * 0.5);
-							margin: 0;
-							position: absolute;
-							top: calc(var(--height) * 0.1);
-							left: calc(var(--height) * 0.11);
-						}
-						h2 {
-							font-weight: 500;
-							font-family: Arial;
-							color: #fff;
-							text-align: right;
-							font-size: calc(var(--height) * 0.08);
-							width: calc(var(--width) * 0.5);
-							height: calc(var(--height) * 0.1);
-							margin: 0;
-							position: absolute;
-							bottom: calc(var(--height) * 0.1);
-							right: calc(var(--height) * 0.11);
-						}
-						span.rating {
-							font-family: monospace;
-							color: #fff;
-							color: #ffcc00;
-							font-size: calc(var(--height) * 0.125);
-							width: calc(var(--width) * 0.3);
-							height: calc(var(--height) * 0.15);
-							margin: 0;
-							position: absolute;
-							bottom: calc(var(--height) * 0.095);
-							left: calc(var(--height) * 0.09);
-						}
-					}
-				}
-
-				/* &:hover .reviews {
-					animation-play-state: paused;
-				} */
-			}
-
-			#metrics {
-				width: 100vw;
-				height: 30vh;
-
-				background: rgba(245, 245, 255, 0.075);
-				border: .5vw solid rgba(255, 255, 255, 0.15);
-				border-left: none;
-				border-right: none;
-
-				display: grid;
-				grid-template-columns: 50vw 50vw;
-
-				div {
-					width: 100%;
-					height: 100%;
-					position: relative;
-
-					h1, h2 {
-						color: #fff;
-						font-family: Arial;
-						font-weight: 500;
-						text-align: center;
-						margin: 0;
-
-						position: absolute;
-						
-						&::selection {
-							background: #ffffff55;
-						}
-					}
-					h1 {
-						font-size: 7vh;
-						height: 7vh;
-						top: 25%;
-
-						width: 100%;
-					}
-					h2 {
-						font-size: 2vh;
-						height: 2vh;
-						bottom: 37.5%;
-
-						width: 70%;
-						margin-left: 15%;
-					}
-				}
-			}
-
-			#email {
-				width: 100vw;
-				margin: 3vw 0;
-
-				p {
-					font-family: Arial;
-					color: #777;
-					font-size: 1.4vh;
-					line-height: 1.6vh;
-					text-align: center;
-					margin: 0 10vw;
-
-					&::selection {
-						background: #77777755;
-					}
-				}
-				a {
-					display: inline-block;
-					text-decoration: none;
-					color: #fff;
-					font-family: Arial;
-					font-weight: 500;
-					font-size: 4vh;
-					line-height: 5vh;
-					height: 5vh;
-					width: 100vw;
-
-					margin: 1vh 0;
-					text-align: center;
-				}
-			}
-		}
-
-		@keyframes review-scroll {
-			0% {
-				transform: translateX(0);
-			}
-			100% {
-				transform: translateX(calc(-100% - var(--gap)));
 			}
 		}
 
@@ -667,59 +465,6 @@
 
 					margin: 4vh 3vw 4vh 3vw;
 				}
-				#hero {
-					height: 40vh;
-
-					h1 {
-						font-size: 9vh;
-						line-height: 9.2vh;
-						text-shadow: 0 0 2.5vh #ffffff33;
-					}
-				}
-
-				#reviews-wrapper {
-					--height: 20vw;
-
-					.reviews {
-						.review {
-							--width: 30vw;
-							border-width: .8vh;
-						}
-					}
-				}
-
-				#metrics {
-					grid-template-columns: 20vw 30vw 30vw 20vw;
-
-					#paper-metric { grid-area: 1 / 2 / 2 / 3; }
-					#visit-metric { grid-area: 1 / 3 / 2 / 4; } 
-
-					div {
-						h1 {
-							font-size: 8vh;
-							height: 8vh;
-							top: 25%;
-						}
-						h2 {
-							font-size: 2.3vh;
-							height: 2.3vh;
-							bottom: 35%;
-						}
-					}
-				}
-
-				#email {
-					p {
-						font-size: 2vh;
-						line-height: 2.2vh;
-					}
-					a {
-						font-size: 6vh;
-						line-height: 6.2vh;
-						height: 6.2vh;
-						margin: 1.5vh 0;
-					}
-				}
 			}
 		}
 		@media only screen and (max-width: 130vh) {
@@ -800,73 +545,14 @@
 	</div>
 	
 	<div id="main">
-		<div id="hero">
-			<h1>The <em>Home</em> of SQA Past Papers</h1>
-		</div>
+		<h1 id="name">Error 404</h1>
 		<p id="description">
-			Archive of SQA past papers, marking schemes and resources, all in one place.<br>
-			Since the SQA only keeps the last 5 years of papers<br>
-			while the rest are left to float around online.<br>
-			Search through the archive in the box above<br><br>
+			We couldn't find the page you were looking for.<br>
+			Please check the URL and try again,<br>
+			or search for it using the search bar above.<br><br>
+			If you came accross this page normally, please let us know using the "Report" button below.<br><br>
 			<span id="visits">Loading visits...</span>
 		</p>
-
-		<!-- &#9733;&#9734; -->
-		<div id="reviews-wrapper">
-			<div class="reviews">
-				<div class="review">
-					<p>Ooh, very impressive</p>
-					<h2>&mdash;&nbsp; Mr McKeown</h2>
-					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-				</div>
-				<div class="review">
-					<p>Provides amazing resources for Scottish students like myself,<br>saves me time scouring for papers</p>
-					<h2>&mdash;&nbsp; Lucas</h2>
-					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-				</div>
-				<div class="review">
-					<p>Thanks to your site, I finally beat Connor Wylie in physics</p>
-					<h2>&mdash;&nbsp; Liam</h2>
-					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-				</div>
-			</div>
-			<div class="reviews">
-				<div class="review">
-					<p>Ooh, very impressive</p>
-					<h2>&mdash;&nbsp; Mr McKeown</h2>
-					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-				</div>
-				<div class="review">
-					<p>Provides amazing resources for Scottish students like myself,<br>saves me time scouring for papers</p>
-					<h2>&mdash;&nbsp; Lucas</h2>
-					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-				</div>
-				<div class="review">
-					<p>Thanks to your site, I finally beat Connor Wylie in physics</p>
-					<h2>&mdash;&nbsp; Liam</h2>
-					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-				</div>
-			</div>
-		</div>
-
-		<div id="metrics">
-			<div id="paper-metric">
-				<h1>1504</h1>
-				<h2>Papers and Marking Schemes</h2>
-			</div>
-			<div id="visit-metric">
-				<h1 id="total-visits">???</h1>
-				<h2>Total Visits</h2>
-			</div>
-		</div>
-
-		<div id="email">
-			<p>
-				Got any past papers or resources you want to send in?<br>
-				Email us here at:
-			</p>
-			<a href="mailto:contact@bearsden.academy" target="_blank">contact@bearsden.academy</a>
-		</div>
 	</div>
 	<div id="bottom">
 		<h1>SQA.MY</h1>
@@ -910,17 +596,7 @@
 			}
 		});
 
-		function formatnum(num) {
-			if (Math.abs(num) < 1000) return num.toString();
-
-			let formatted = (num / 1000).toFixed(1);
-			if (formatted.endsWith('.0')) {
-				formatted = formatted.slice(0, -2);
-			}
-			return `${formatted}k+`;
-		}
-
-		fetch('https://qwk.pythonanywhere.com/l/sqa', { method: 'GET' })
+		fetch('https://qwk.pythonanywhere.com/l/sqa-404', { method: 'GET' })
 			.then(response => response.json())
 			.then(data => {
 				document.getElementById('visits').innerText = `This page has been visited ${data['visits']} times`;
@@ -928,15 +604,6 @@
 			.catch(error => {
 				document.getElementById('visits').innerText = `Couldn't load visits`;
 				console.error('Error fetching visits:', error)
-			});
-		fetch('https://qwk.pythonanywhere.com/totalv/sqa', { method: 'GET' })
-			.then(response => response.json())
-			.then(data => {
-				document.getElementById('total-visits').innerText = `${formatnum(data['visits'])}`;
-			})
-			.catch(error => {
-				document.getElementById('total-visits').innerText = `???`;
-				console.error('Error fetching total visits:', error)
 			});
 	</script>
 	<script src="https://cdn.jsdelivr.net/gh/qwkdev/sqa/fuse.js"></script>
