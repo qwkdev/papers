@@ -215,6 +215,10 @@
 						}
 					}
 				}
+
+				&::selection, a::selection {
+					background: #ffffff77;
+				}
 			}
 			#contact {
 				grid-area: 2 / 3 / 3 / 4;
@@ -300,7 +304,7 @@
 					left: 50%;
 					transform: translate(-50%, -50%);
 
-					&::selection {
+					&::selection, em::selection {
 						background: #ffffff55;
 					}
 				}
@@ -327,7 +331,7 @@
 				width: 100vw;
 				height: var(--height);
 
-				margin: 3.6vw 0 4vw 0;
+				margin-top: 3.6vw;
 
 				position: relative;
 				overflow-x: hidden;
@@ -415,6 +419,53 @@
 				/* &:hover .reviews {
 					animation-play-state: paused;
 				} */
+			}
+
+			#submit-review  {
+				grid-area: 1 / 3 / 2 / 4;
+				color: #777;
+				font-family: Arial;
+				font-weight: 500;
+
+				font-size: 1.4vh;
+				line-height: 1.6vh;
+				width: 100%;
+				text-align: center;
+				margin: 1.5vw 0;
+
+				a {
+					color: #777;
+					font-family: Arial;
+					font-weight: 500;
+					position: relative;
+					transition: .2s;
+					z-index: 2;
+					text-decoration: none;
+
+					.underline {
+						width: 112.5%;
+						transform: translate(-94%, 0);
+						height: 1px;
+						background: #777;
+						
+						position: absolute;
+						bottom: 0;
+						transition: .2s;
+						z-index: -100;
+					}
+
+					&:hover {
+						color: #000 !important;
+
+						.underline {
+							height: 100%;
+						}
+					}
+				}
+
+				&::selection, a::selection {
+					background: #ffffff77;
+				}
 			}
 
 			#metrics {
@@ -692,6 +743,11 @@
 					}
 				}
 
+				#submit-review {
+					font-size: 2vh;
+					line-height: 2.2vh;
+				}
+
 				#metrics {
 					grid-template-columns: 20vw 30vw 30vw 20vw;
 
@@ -820,7 +876,7 @@
 			<div class="reviews">
 				<div class="review">
 					<p>Ooh, very impressive</p>
-					<h2>&mdash;&nbsp; Mr McKeown</h2>
+					<h2>&mdash;&nbsp; Tony</h2>
 					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
 				</div>
 				<div class="review">
@@ -837,7 +893,7 @@
 			<div class="reviews">
 				<div class="review">
 					<p>Ooh, very impressive</p>
-					<h2>&mdash;&nbsp; Mr McKeown</h2>
+					<h2>&mdash;&nbsp; Tony</h2>
 					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
 				</div>
 				<div class="review">
@@ -853,9 +909,11 @@
 			</div>
 		</div>
 
+		<h3 id="submit-review">Submit your review <span><a href="/review" target="_blank">here<span class="underline"></span></a></span></h2>
+
 		<div id="metrics">
 			<div id="paper-metric">
-				<h1>1504</h1>
+				<h1>1630</h1>
 				<h2>Papers and Marking Schemes</h2>
 			</div>
 			<div id="visit-metric">
