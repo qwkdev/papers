@@ -290,6 +290,23 @@
 		#main #hero h1::selection, #main #hero h1 em::selection {
 			background: #ffffff55;
 		}
+		#main #hero h1 #splash-wrapper {
+			position: relative;
+		}
+		#main #hero h1 #splash {
+			display: block;
+			transform: rotate(-15deg);
+			position: absolute;
+			top: -2vw;
+			left: -4vw;
+			font-size: 2vw;
+			line-height: 2.2vw;
+			color: #777;
+			text-shadow: 0 0 2vw #77777733;
+		}
+		#main #hero h1 #splash::selection {
+			background: #77777755;
+		}
 		#main #description {
 			font-family: Arial;
 			font-weight: 500;
@@ -336,7 +353,7 @@
 			display: flex;
 			gap: var(--gap);
 			width: fit-content;
-			animation: review-scroll 15s linear infinite;
+			animation: review-scroll 30s linear infinite;
 		}
 		#main #reviews-wrapper .reviews .review {
 			--width: 40vh;
@@ -647,6 +664,14 @@
 				line-height: 9.2vh;
 				text-shadow: 0 0 2.5vh #ffffff33;
 			}
+			#main #hero h1 #splash {
+				top: -2.5vh;
+				left: -5vh;
+				transform: rotate(-15deg);
+				font-size: 2.5vh;
+				line-height: 2.7vh;
+				text-shadow: 0 0 2.5vh #77777733;
+			}
 			#main #reviews-wrapper {
 				--height: 20vw;
 			}
@@ -768,7 +793,7 @@
 	
 	<main id="main" role="main" aria-label="Main Content">
 		<div id="hero" aria-label="Hero Text">
-			<h1>The <em>Home</em> of SQA Past Papers</h1>
+			<h1>The <span id="splash-wrapper"><span id="splash">(unofficial)</span><em>Home</em></span> of SQA Past Papers</h1>
 		</div>
 		<p id="description" aria-label="Description of Site">
 			Archive of SQA past papers, marking schemes and resources, all in one place.<br>
@@ -787,8 +812,18 @@
 					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
 				</div>
 				<div class="review">
+					<p>Everything is super easy to find and download.<br>My go-to revision resource.<br>Super useful</p>
+					<h2>&mdash;&nbsp; Jonah</h2>
+					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+				</div>
+				<div class="review">
 					<p>Provides amazing resources for Scottish students like myself,<br>saves me time scouring for papers</p>
 					<h2>&mdash;&nbsp; Lucas</h2>
+					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+				</div>
+				<div class="review">
+					<p>Better than the actual SQA website</p>
+					<h2>&mdash;&nbsp; Ross</h2>
 					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
 				</div>
 				<div class="review">
@@ -804,8 +839,18 @@
 					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
 				</div>
 				<div class="review">
+					<p>Everything is super easy to find and download.<br>My go-to revision resource.<br>Super useful</p>
+					<h2>&mdash;&nbsp; Jonah</h2>
+					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+				</div>
+				<div class="review">
 					<p>Provides amazing resources for Scottish students like myself,<br>saves me time scouring for papers</p>
 					<h2>&mdash;&nbsp; Lucas</h2>
+					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+				</div>
+				<div class="review">
+					<p>Better than the actual SQA website</p>
+					<h2>&mdash;&nbsp; Ross</h2>
 					<span class="rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
 				</div>
 				<div class="review">
