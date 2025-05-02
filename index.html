@@ -610,6 +610,10 @@
 			width: 100%;
 			height: max-content;
 			margin: 5vw 10vw;
+
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 5vw;
 		}
 		#popular, #popular * {
 			--width: 80vw;
@@ -714,6 +718,137 @@
 		}
 		#popular #pop-links a:hover {
 			background: #ffffff05;
+		}
+
+		#socials {
+			width: 80vw;
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 5vw;
+		}
+		#socials a {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 4vw;
+
+			text-decoration: none;
+
+			width: 100%;
+			height: 15vw;
+
+			background: rgba(245, 245, 255, 0.075);
+			border: .5vw solid rgba(255, 255, 255, 0.15);
+			border-radius: 2vw;
+
+			transition: .2s;
+		}
+		#socials a:hover {
+			background: rgba(245, 245, 255, 0.1);
+			transform: scale(1.02);
+		}
+		#socials a p {	
+			font-size: 6vw;
+			line-height: 6vw;
+			height: 6vw;
+			text-decoration: none;
+			color: #fff;
+			font-family: Arial;
+			text-align: center;
+
+			margin: 0;
+		}
+		#socials a svg {
+			height: 9vw;
+			width: auto;
+
+			stroke: #fff;
+			fill: #fff;
+
+			transform: translateY(-1%);
+		}
+
+		.underlined {
+			color: #fff;
+			font-family: Arial;
+			font-weight: 500;
+			position: relative;
+			transition: .2s;
+			z-index: 2;
+			text-decoration: none;
+		}
+		.underline {
+			--widen: 0%;
+			--fix: 0%;
+			width: calc(100% + var(--widen));
+			transform: translateX(calc(-100% + var(--fix)));
+			height: 1px;
+			background: #fff;
+			position: absolute;
+			bottom: 0;
+			transition: .2s;
+			z-index: -1;
+		}
+		.underlined:hover {
+			color: #000;
+		}
+		.underlined:hover .underline {
+			height: 100%;
+		}
+		.underlined::selection {
+			background: #ffffff55;
+		}
+
+		#privacy {
+			position: fixed;
+			bottom: 3vh;
+			right: 3vh;
+
+			width: 25vh;
+			
+			background: rgba(245, 245, 255, 0.075);
+			border: .4vh solid rgba(255, 255, 255, 0.15);
+			backdrop-filter: blur(1vh);
+			border-radius: 1.5vh;
+			
+			z-index: 200;
+			opacity: 1;
+			transition: 1s;
+		}
+		#privacy p {
+			font-size: 2vh;
+			line-height: 2.2vh;
+			color: #fff;
+			font-family: Arial;
+			font-weight: 500;
+			
+			margin: 2vh;
+		}
+		#privacy p::selection {
+			background: #ffffff55;
+		}
+		#privacy button {
+			position: absolute;
+			top: 0;
+			left: 0;
+			transform: translate(-48%, -48%);
+
+			width: 4vh;
+			height: 4vh;
+
+			background: rgba(245, 245, 255, 0.075);
+			border: .4vh solid rgba(255, 255, 255, 0.15);
+			backdrop-filter: blur(1vh);
+			border-radius: 50%;
+		}
+		#privacy button:hover {
+			background: rgba(245, 245, 255, 0.2);
+		}
+		#privacy button svg {
+			width: 100%;
+			height: 100%;
+			stroke: #fff;
+			fill: #fff;
 		}
 
 		@media only screen and (min-width: 100vh) {
@@ -823,6 +958,13 @@
 			}
 			#latest {
 				margin: 4.5vw 5vw;
+				gap: 4.5vw;
+
+				grid-template-columns: 32.5vw 53vw;
+				grid-template-rows: 10vh auto;
+			}
+			#popular {
+				grid-area: 1 / 1 / 3 / 2;
 			}
 			#popular, #popular #pop-links a {
 				border-width: .4vw;
@@ -862,6 +1004,37 @@
 				border-right: none;
 				border-left: .2vw solid rgba(255, 255, 255, 0.15);
 				border-bottom-right-radius: 2vw;
+			}
+			#socials {
+				grid-area: 1 / 2 / 2 / 3;
+				width: 100%;
+				gap: 4.5vw;
+			}
+			#socials a {
+				gap: 1.5vw;
+				height: 7vw;
+
+				border-width: .4vw;
+				border-radius: 2vw;
+			}
+			#socials a p {	
+				font-size: 3vw;
+				line-height: 3vw;
+				height: 3vw;
+			}
+			#socials a svg {
+				height: 4vw;
+				transform: translateY(-1.5%);
+			}
+			#privacy {
+				bottom: 4vh;
+				right: 4vh;
+				width: 30vh;
+				border-width: .7vh;
+				border-radius: 2vh;
+			}
+			#privacy p {
+				margin: 2.5vh;
 			}
 		}
 		@media only screen and (max-width: 130vh) {
@@ -1175,6 +1348,9 @@
 		</section>
 
 		<div id="latest" aria-label="Latest Info">
+			<div id="socials" aria-label="Social Media Links">
+				<a href="https://www.tiktok.com/@sqamy" target="_blank"><p>Follow us</p><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg></a>
+			</div>
 			<div id="popular" aria-label="Most Popular Subject Today">
 				<h1>Most Popular Subject Today</h1>
 				<div id="pop-info">
@@ -1208,7 +1384,22 @@
 		<a id="report" aria-label="Report" href="https://qwk.pythonanywhere.com/contact?ref=SQA-Report" target="_blank">Report</a>
 	</footer>
 
+	<div id="privacy">
+		<p>By using this site you agree to our<br><span><a class="underlined" href="https://tracker.qwk.zone/" target="_blank" aria-label="Privacy Policy">Privacy Policy<span class="underline" style="--widen: 3%; --fix: 1.7%;"></span></a></span></p>
+		<button onclick="closeprivacy()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></button>
+	</div>
+
 	<script>
+		const privacy = document.getElementById('privacy');
+
+		if (localStorage.getItem('hidePrivacyPopup')) { privacy.style.cssText = 'display: none;' }
+		function closeprivacy() {
+			localStorage.setItem('hidePrivacyPopup', 'true');
+
+			privacy.style.cssText = 'transform: translateX(200%); opacity: 0;';
+			setTimeout(() => privacy.style.cssText = 'display: none;', 1000);
+		}
+
 		const finder = document.getElementById('finder');
 		const icon = document.getElementById('icon');
 		const query = document.getElementById('query');
