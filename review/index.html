@@ -500,8 +500,7 @@
 			const rating = [...Array(5).keys()].map(i => document.getElementById('star' + (i + 1)).innerHTML == '★' ? 1 : 0).reduce((a, b) => a + b, 0);
 
 			if (text.length > 0 && name.length > 0 && rating > 0) {
-				let message = encodeURIComponent(`${text}\nRating: ${rating}/5`);
-				window.location.href = `https://qwk.pythonanywhere.com/contact/send?msg=${message}&name=${encodeURIComponent(name)}&ref=SQA-Review&after=${encodeURIComponent('Thanks,<br>Your review will be checked by us, and then added to the site.')}`;
+				window.location.href = `https://qwk.pythonanywhere.com/contact/send?msg=${encodeURIComponent(text)}&name=${encodeURIComponent(name)}&ref=SQA-Review&rating=${rating}&after=${encodeURIComponent('Thanks,<br>Your review will be checked by us, and then added to the site.')}`;
 			}
 		}
 
