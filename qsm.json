@@ -60,6 +60,23 @@
             "rmps": "https://higher.sqa.my/rmps",
             "spanish": "https://higher.sqa.my/spanish"
         },
+        "ah": {
+            "bio": "https://ah.sqa.my/bio",
+            "business": "https://ah.sqa.my/business",
+            "chem": "https://ah.sqa.my/chem",
+            "computing": "https://ah.sqa.my/computing",
+            "english": "https://ah.sqa.my/english",
+            "french": "https://ah.sqa.my/french",
+            "geo": "https://ah.sqa.my/geo",
+            "graphics": "https://ah.sqa.my/graphics",
+            "history": "https://ah.sqa.my/history",
+            "maths": "https://ah.sqa.my/maths",
+            "mody": "https://ah.sqa.my/mody",
+            "music": "https://ah.sqa.my/music",
+            "physics": "https://ah.sqa.my/physics",
+            "rmps": "https://ah.sqa.my/rmps",
+            "spanish": "https://ah.sqa.my/spanish"
+        },
         "nat5": {
             "apps": "https://nat5.sqa.my/apps",
             "art": "https://nat5.sqa.my/art",
