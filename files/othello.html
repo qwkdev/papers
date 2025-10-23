@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Othello: Anatomy of a Tragedy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 50vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .flow-line {
+            width: 4px;
+            background-color: #4a5568;
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        .flow-item::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: white;
+            border: 4px solid;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="container mx-auto p-4 md:p-8">
+        
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight">ANATOMY OF A TRAGEDY</h1>
+            <p class="text-xl md:text-2xl text-gray-400 mt-2">Deconstructing Deception in Shakespeare's *Othello*</p>
+        </header>
+        
+        <section id="introduction" class="my-16">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold mb-4">The Blueprint for Destruction</h2>
+                <p class="text-gray-300">
+                    A successful analysis of *Othello* requires a balanced approach. The deception in Act 3, Scene 3 is the play's fulcrum, but its power is built on prior groundwork and its consequences define the tragic conclusion. This infographic breaks down the argument into three core components.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 border-l-4 border-green-500">
+                    <h3 class="text-2xl font-bold text-green-400">The Wider Narrative</h3>
+                    <p class="mt-2 text-gray-400">Tracking the deception as a strategic **process** that spans the entire play, linking the core scene to the global tragic structure and themes.</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 border-l-4 border-red-500">
+                    <h3 class="text-2xl font-bold text-red-400">Presentation & Technique</h3>
+                    <p class="mt-2 text-gray-400">Analyzing the specific rhetorical **techniques** Iago uses to manipulate Othello, turning language into a weapon.</p>
+                </div>
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 border-l-4 border-blue-500">
+                    <h3 class="text-2xl font-bold text-blue-400">Psychological Impact</h3>
+                    <p class="mt-2 text-gray-400">Examining the devastating **impact** of the deception on Othello's character, charting his descent from noble general to tragic figure.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="my-24">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-green-400 mb-4">Step 1: The Strategic Process</h2>
+                <p class="text-gray-300">
+                    The deception is not a single act but a calculated campaign. Iago lays the groundwork meticulously long before the "Temptation Scene," ensuring Othello's mind is fertile ground for the seeds of doubt. This proves Othello's fall is a gradual process, not an instant failure of judgment.
+                </p>
+            </div>
+            <div class="relative max-w-xl mx-auto">
+                <div class="flow-line hidden sm:block"></div>
+                <div class="space-y-12">
+                    <div class="flow-item relative pl-8 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-8 items-center border-green-500">
+                        <div class="sm:text-right">
+                            <h4 class="text-xl font-bold">Act 1: The Mask of Honesty</h4>
+                            <p class="text-gray-400">Iago establishes his duplicitous nature to the audience via soliloquy, ensuring we are aware "I am not what I am." He gains the trust of all characters.</p>
+                        </div>
+                        <div class="hidden sm:block"></div>
+                    </div>
+                    <div class="flow-item relative pl-8 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-8 items-center border-green-500">
+                        <div class="hidden sm:block"></div>
+                        <div>
+                            <h4 class="text-xl font-bold">Act 2: Weaponizing Virtue</h4>
+                            <p class="text-gray-400">He manipulates the disgraced Cassio into pleading with Desdemona, knowing her kindness will appear suspicious. He vows to "out of her own goodness make the net that shall enmesh them all."</p>
+                        </div>
+                    </div>
+                     <div class="flow-item relative pl-8 sm:pl-0 sm:grid sm:grid-cols-2 sm:gap-8 items-center border-green-500">
+                        <div class="sm:text-right">
+                            <h4 class="text-xl font-bold">Early Act 3: The First Poison</h4>
+                            <p class="text-gray-400">As Cassio leaves Desdemona, Iago drops the first hint: "Ha! I like not that." This simple, feigned observation plants the initial, critical seed of doubt.</p>
+                        </div>
+                         <div class="hidden sm:block"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="technique" class="my-24">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-red-400 mb-4">Step 2: Iago's Rhetorical Arsenal</h2>
+                <p class="text-gray-300">
+                    Within Act 3, Scene 3, Iago unleashes a masterclass in psychological manipulation. He avoids direct accusations, instead using a range of rhetorical devices that force Othello to draw his own conclusions, making the deception feel like a self-realized truth.
+                </p>
+            </div>
+            <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                <div class="chart-container">
+                    <canvas id="iagoTechniquesChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="my-24">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-blue-400 mb-4">Step 3: The Psychological Collapse</h2>
+                <p class="text-gray-300">
+                    The impact of Iago's poison is immediate and catastrophic. Othello's identity as a rational, eloquent leader disintegrates. This chart visualizes his rapid descent from a state of noble grace into one of chaotic, jealous rage as the deception takes hold.
+                </p>
+            </div>
+            <div class="bg-gray-800 rounded-lg shadow-xl p-6">
+                 <div class="chart-container">
+                    <canvas id="othelloDescentChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section id="appreciation" class="my-24">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-green-400 mb-4">Conclusion: The Anatomy of a Tragedy</h2>
+                <p class="text-gray-300">
+                    By understanding the deception as a complete process, we appreciate *Othello* not just as a story of jealousy, but as a profound exploration of human vulnerability. The tragedy is composed of several powerful, interlocking themes.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                     <h3 class="text-xl font-bold text-center mb-4">Jealousy's Dominance</h3>
+                     <div class="h-48 w-48 mx-auto"><canvas id="themeJealousy"></canvas></div>
+                     <p class="text-gray-400 mt-4">The "green-eyed monster" is the primary catalyst, consuming all reason and love.</p>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-center mb-4">Tragic Blindness</h3>
+                    <div class="h-48 w-48 mx-auto"><canvas id="themeBlindness"></canvas></div>
+                    <p class="text-gray-400 mt-4">Othello's inability to see Iago's deceit and Desdemona's innocence is his fatal flaw.</p>
+                </div>
+                 <div class="bg-gray-800 rounded-lg shadow-xl p-6 text-center">
+                    <h3 class="text-xl font-bold text-center mb-4">Social Insecurity</h3>
+                    <div class="h-48 w-48 mx-auto"><canvas id="themeRacism"></canvas></div>
+                     <p class="text-gray-400 mt-4">As an outsider, Othello's insecurity makes him more susceptible to Iago's poison.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+<script>
+    const wrapLabel = (label, maxWidth) => {
+        if (label.length <= maxWidth) {
+            return label;
+        }
+        const words = label.split(' ');
+        const lines = [];
+        let currentLine = '';
+        for (const word of words) {
+            if ((currentLine + word).length > maxWidth) {
+                lines.push(currentLine.trim());
+                currentLine = '';
+            }
+            currentLine += word + ' ';
+        }
+        lines.push(currentLine.trim());
+        return lines;
+    };
+
+    const tooltipTitleCallback = (tooltipItems) => {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        return Array.isArray(label) ? label.join(' ') : label;
+    };
+    
+    const sharedChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                labels: {
+                    color: '#D1D5DB'
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                }
+            }
+        },
+        scales: {
+            y: {
+                ticks: { color: '#9CA3AF' },
+                grid: { color: '#4B5563' }
+            },
+            x: {
+                ticks: { color: '#9CA3AF' },
+                grid: { color: 'transparent' }
+            }
+        }
+    };
+
+    const iagoTechniquesCtx = document.getElementById('iagoTechniquesChart').getContext('2d');
+    new Chart(iagoTechniquesCtx, {
+        type: 'bar',
+        data: {
+            labels: [
+                wrapLabel('Feigned Reluctance', 16),
+                wrapLabel('Rhetorical Questions', 16),
+                wrapLabel('Deceptive Warning', 16),
+                wrapLabel('False Proofs', 16)
+            ],
+            datasets: [{
+                label: 'Conceptual Impact Score',
+                data: [8, 10, 9, 7],
+                backgroundColor: 'rgba(204, 51, 63, 0.6)',
+                borderColor: 'rgba(204, 51, 63, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            ...sharedChartOptions,
+            indexAxis: 'y',
+             scales: {
+                y: {
+                    ticks: { color: '#9CA3AF', font: { size: 14 }},
+                    grid: { color: '#4B5563' }
+                },
+                x: {
+                    ticks: { color: '#9CA3AF' },
+                    grid: { color: '#4B5563' },
+                    max: 10
+                }
+            }
+        }
+    });
+
+    const othelloDescentCtx = document.getElementById('othelloDescentChart').getContext('2d');
+    new Chart(othelloDescentCtx, {
+        type: 'line',
+        data: {
+            labels: ['Act 1: Noble General', 'Act 2: Seeds of Doubt', 'Act 3: The Poison Takes Hold', 'Act 4: Consumed by Rage', 'Act 5: Tragic Conclusion'],
+            datasets: [{
+                label: 'Othello\'s Rationality & Nobility',
+                data: [100, 90, 40, 15, 5],
+                fill: true,
+                backgroundColor: 'rgba(0, 160, 176, 0.2)',
+                borderColor: 'rgba(0, 160, 176, 1)',
+                tension: 0.3
+            }]
+        },
+        options: {
+            ...sharedChartOptions,
+            scales: {
+                 y: {
+                    ticks: { color: '#9CA3AF' },
+                    grid: { color: '#4B5563' },
+                    max: 100,
+                    min: 0
+                },
+                x: {
+                    ticks: { color: '#9CA3AF' },
+                    grid: { color: 'transparent' }
+                }
+            }
+        }
+    });
+
+    const sharedDoughnutOptions = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false
+            },
+            tooltip: {
+                callbacks: {
+                     title: tooltipTitleCallback
+                }
+            }
+        },
+        cutout: '70%',
+    };
+
+    new Chart(document.getElementById('themeJealousy').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Jealousy', 'Other Factors'],
+            datasets: [{
+                data: [60, 40],
+                backgroundColor: ['#58B072', '#4A5568'],
+                borderColor: '#1F2937',
+                borderWidth: 4
+            }]
+        },
+        options: sharedDoughnutOptions
+    });
+
+    new Chart(document.getElementById('themeBlindness').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Tragic Blindness', 'Other Factors'],
+            datasets: [{
+                data: [30, 70],
+                backgroundColor: ['#CC333F', '#4A5568'],
+                borderColor: '#1F2937',
+                borderWidth: 4
+            }]
+        },
+        options: sharedDoughnutOptions
+    });
+
+    new Chart(document.getElementById('themeRacism').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Social Insecurity', 'Other Factors'],
+            datasets: [{
+                data: [10, 90],
+                backgroundColor: ['#00A0B0', '#4A5568'],
+                borderColor: '#1F2937',
+                borderWidth: 4
+            }]
+        },
+        options: sharedDoughnutOptions
+    });
+
+</script>
+</body>
+</html>
