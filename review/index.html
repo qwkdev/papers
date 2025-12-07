@@ -1,23 +1,368 @@
-<body style="margin: 0; background: #000000;">
-	<p style="font-family: monospace; margin: 0; text-align: center; color: #ffffff; font-size: 6vh; line-height: 6vh; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
-		Temporarily down for updating...<br>
-		<b id="timer" style="color: #777777; font-weight: 500; font-size: 4vh;"></b>
-	</p>
-	<script>
-		var date = new Date("Dec 7, 2025 20:00:00").getTime();
-		var x = setInterval(function() {
-			var time = date - new Date().getTime();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/sqa/refs/heads/main/icon.ico" type="image/x-icon">
+	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/sqa/refs/heads/main/icon.png" type="image/png" sizes="32x32">
+	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/sqa/refs/heads/main/icon.svg" type="image/svg+xml">
+
+	<title>Leave a Review</title>
+	<style>
+		body {
+			margin: 0;
+			background: #141415;
+		}
+
+		#main {
+			--margin: 5vw;
+
+			display: grid;
+
+			width: calc(100vw - (2 * var(--margin)));
+			height: 100vh;
+			margin: 0 var(--margin);
+
+			grid-template-columns: calc(100vw - (2 * var(--margin)));
+			grid-template-rows: 15vh 70vh 15vh;
 			
-			var d = Math.floor(time / (1000 * 60 * 60 * 24));
-			var h = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var m = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
-			var s = Math.floor((time % (1000 * 60)) / 1000);
-			document.getElementById("timer").innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-			
-			if (time < 0) {
-				clearInterval(x);
-				document.getElementById("timer").innerHTML = "";
+
+			h1 {
+				font-family: Arial;
+				color: #fff;
+				font-size: 5vh;
+				line-height: 5vh;
+				height: 5vh;
+				width: 80vw;
+				text-align: center;
+				margin: 0;
+				position: absolute;
+				top: 4.75vh;
+				left: 9.5vw;
 			}
-		}, 500);
+
+			#review {
+				grid-area: 2 / 1 / 3 / 2;
+				width: 100%;
+				height: 100%;
+				
+				position: relative;
+
+				background: rgba(245, 245, 255, 0.075);
+				border: .5vw solid rgba(255, 255, 255, 0.15);
+				border-radius: 2vw;
+
+				box-sizing: border-box;
+
+				#text, #name {
+					font-family: Arial;
+					color: #fff;
+					margin: 0;
+					background: transparent;
+					border: none;
+					resize: none;
+				}
+				#text:focus, #name:focus {
+					outline: none;
+				}
+				
+				#text {
+					font-size: 4vh;
+					width: 80%;
+					height: 70%;
+					position: absolute;
+					top: 3vh;
+					left: 3vh;
+				}
+				#name {
+					font-size: 4vh;
+					width: 50%;
+					height: 10%;
+					position: absolute;
+					bottom: 2vh;
+					right: 3vh;
+					text-align: right;
+				}
+
+				#stars {
+					--size: 3.5vh;
+					width: calc(5 * var(--size));
+					height: var(--size);
+					position: absolute;
+					bottom: 3.5vh;
+					left: 2.5vh;
+					display: grid;
+					grid-template-columns: repeat(5, var(--size));
+					grid-template-rows: var(--size);
+
+					p {
+						font-size: calc(1.25 * var(--size));
+						line-height: var(--size);
+						text-align: center;
+						color: #ffcc00;
+						margin: 0;
+						cursor: pointer;
+					}
+				}
+			}
+
+			button {
+				grid-area: 3 / 1 / 4 / 2;
+				width: 100%;
+				height: calc(100% - (1.5 * var(--margin)));
+				margin-top: calc(.5 * var(--margin));
+
+				background: rgba(245, 245, 255, 0.075);
+				border: .5vw solid rgba(255, 255, 255, 0.15);
+				border-radius: 2vw;
+
+				box-sizing: border-box;
+
+				color: #fff;
+				font-family: Arial;
+				font-size: 3vh;
+				line-height: 3vh;
+				text-align: center;
+				transition: .5s;
+
+				&:hover {
+					background: rgba(245, 245, 255, 0.1);
+				}
+
+				&.grey {
+					color: #ffffff77;
+					transform: scale(0.9);
+
+					&:hover {
+						background: rgba(245, 245, 255, 0.075);
+					}
+				}
+			}
+		}
+
+		.underlined {
+			color: #fff;
+			font-family: Arial;
+			font-weight: 500;
+			position: relative;
+			transition: .2s;
+			z-index: 2;
+			text-decoration: none;
+		}
+		.underline {
+			--widen: 0%;
+			--fix: 0%;
+			width: calc(100% + var(--widen));
+			transform: translateX(calc(-100% + var(--fix)));
+			height: 1px;
+			background: #fff;
+			position: absolute;
+			bottom: 0;
+			transition: .2s;
+			z-index: -1;
+		}
+		.underlined:hover {
+			color: #000;
+		}
+		.underlined:hover .underline {
+			height: 100%;
+		}
+		.underlined::selection {
+			background: #ffffff55;
+		}
+
+		#success, #error {
+			width: max-content;
+			max-width: 90vw;
+			height: max-content;
+
+			padding: 4vw;
+			display: flex;
+			flex-direction: column;
+			gap: 2vh;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			box-sizing: border-box;
+			background: rgba(245, 245, 255, 0.075);
+			border: .5vh solid rgba(255, 255, 255, 0.15);
+			border-radius: 2vh;
+
+			h1, p {
+				font-family: Arial;
+				color: #fff;
+				margin: 0;
+				text-align: center;
+
+				&::selection {
+					background: #ffffff55;
+				}
+			}
+			h1 {
+				font-size: 5vh;
+			}
+			p {
+				font-size: 2vh;
+			}
+		}
+
+		@media only screen and (min-width: 100vh) {
+			#main {
+				--margin: 5vh;
+
+				h1 {
+					font-size: 6vh;
+					line-height: 6vh;
+					height: 6vh;
+					width: calc(52vw - var(--margin));
+					top: 3.6vh;
+					left: var(--margin);
+				}
+
+				#review {
+					grid-area: 2 / 1 / 4 / 2;
+					height: calc(100% - var(--margin));
+
+					border-width: .5vh;
+					border-radius: 2vh;
+
+					#text, #name {
+						font-size: 6vh;
+					}
+					#text {
+						left: 3.5vh;
+					}
+					#stars {
+						--size: 4.5vh;
+						left: 3vh;
+					}
+				}
+
+				button {
+					width: calc(47.5vw - var(--margin));
+					height: 10vh;
+					margin: 0;
+
+					border-width: .5vh;
+					border-radius: 2vh;
+
+					position: absolute;
+					top: 2vh;
+					right: var(--margin);
+				}
+			}
+		}
+
+		*[hidden] {
+			display: none !important;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<h1>Review</h1>
+		<div id="review">
+			<textarea id="text" maxlength="90" placeholder="Write a review..."></textarea>
+			<input type="text" maxlength="15" id="name" placeholder="Name" />
+			<div id="stars">
+				<!-- Idk how else to do ts vro -->
+				<!-- &#9734; | &#9733; -->
+				<p id="star1" onclick="rate(1)">☆</p>
+				<p id="star2" onclick="rate(2)">☆</p>
+				<p id="star3" onclick="rate(3)">☆</p>
+				<p id="star4" onclick="rate(4)">☆</p>
+				<p id="star5" onclick="rate(5)">☆</p>
+			</div>
+		</div>
+		<button id="submit" class="grey" onclick="submit()">Submit</button>
+	</div>
+
+	<div id="success" hidden>
+		<h1>contact.qwk.zone</h1>
+		<p>
+			Your message has been sent and is viewable 
+			<span><a class="underlined" href="https://contact.qwk.zone/">here<span class="underline" style="--widen: 3%; --fix: 1.7%;"></span></a></span><br>
+			Check back as I'll respond as soon as I can.<br>
+			<br>
+			Please note that reviews are not added automatically,<br>
+			I manually review all of these and will not add bogus reviews, thanks.
+		</p>
+	</div>
+	<div id="error" hidden>
+		<h1>Error</h1>
+		<p>
+			Failed to send message<br>
+			<span id="traceback"></span><br>
+			Please try again (later)
+		</p>
+	</div>
+
+	<script>
+		function rate(n) {
+			for (let i = 1; i <= 5; i++) {
+				document.getElementById('star' + i).innerHTML = (i <= n) ? '★' : '☆';
+			}
+		}
+
+		const textInput = document.getElementById("text");
+		const nameInput = document.getElementById("name");
+		
+		function check() {
+			if (
+				textInput.value.length > 0 &&
+				nameInput.value.length > 0 &&
+				['star1', 'star2', 'star3', 'star4', 'star5'].some(star => document.getElementById(star).innerHTML == '★')
+			) {
+				document.getElementById("submit").classList.remove("grey");
+			} else {
+				document.getElementById("submit").classList.add("grey");
+			}
+		}
+
+		textInput.addEventListener('input', check);
+		nameInput.addEventListener('input', check);
+		document.getElementById("stars").addEventListener('click', check);
+
+		const after = {
+			main: document.getElementById('main'),
+			success: document.getElementById('success'),
+			error: document.getElementById('error'),
+			traceback: document.getElementById('traceback')
+		}
+
+		function submit() {
+			const text = textInput.value;
+			const name = nameInput.value;
+			const rating = [...Array(5).keys()].map(i => document.getElementById('star' + (i + 1)).innerHTML == '★' ? 1 : 0).reduce((a, b) => a + b, 0);
+
+			if (text.length > 0 && name.length > 0 && rating > 0) {
+				fetch('https://qwk.pythonanywhere.com/contact/send', {
+					method: 'POST',
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						ref: 'SQA-Review',
+						msg: text,
+						name: name,
+						rating: rating
+					})
+				})
+					.then(resp => resp.json())
+					.then(data => {
+						main.hidden = true;
+						after.success.hidden = !data.success;
+						after.error.hidden = data.success;
+						after.traceback.innerText = data.error || '';
+					})
+					.catch(e => {
+						main.hidden = true;
+						after.success.hidden = true;
+						after.error.hidden = false;
+						after.traceback.innerText = e || '';
+					});
+				}
+			}
 	</script>
 </body>
