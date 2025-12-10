@@ -904,18 +904,17 @@
 		}
 		#hat {
 			position: relative;
+		}
+		#hat svg {
+			--size: calc(15 * var(--u));
+			width: var(--size);
+			height: var(--size);
 
-			svg {
-				--size: calc(15 * var(--u));
-				width: var(--size);
-				height: var(--size);
-
-				display: block;
-				position: absolute;
-				top: calc(-.51 * var(--size));
-				right: calc(52% - var(--size));
-				transform: translateX(-50%);
-			}
+			display: block;
+			position: absolute;
+			top: calc(-.51 * var(--size));
+			right: calc(52% - var(--size));
+			transform: translateX(-50%);
 		}
 	</style>
 </head>
