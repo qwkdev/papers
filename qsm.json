@@ -1,6 +1,7 @@
 {
     "sqa": {
         "n5": {
+            "admin": "https://nat5.sqa.my/admin",
             "apps": "https://nat5.sqa.my/apps",
             "art": "https://nat5.sqa.my/art",
             "bio": "https://nat5.sqa.my/bio",
@@ -78,6 +79,7 @@
             "spanish": "https://ah.sqa.my/spanish"
         },
         "nat5": {
+            "admin": "https://nat5.sqa.my/admin",
             "apps": "https://nat5.sqa.my/apps",
             "art": "https://nat5.sqa.my/art",
             "bio": "https://nat5.sqa.my/bio",
