@@ -1,0 +1,80 @@
+
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CPS Test</title>
+
+        <style>
+            :root {
+                --margin: 0;
+            }
+            body {
+                background: #111;
+            }
+            #x {
+                position: absolute;
+                top: var(--margin);
+                left: var(--margin);
+                width: calc(100vw - (2 * var(--margin)));
+                height: calc(100vh - (2 * var(--margin)));
+
+                background-image: url('data:image/jpeg;base64,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');
+                background-size: contain;
+            }
+            #cps {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+
+                text-align: center;
+                font-size: 3vh;
+                color: #fff;
+                font-family: Arial;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="x">
+            <p id="cps">67 CPS</p>
+        </div>
+
+        <script>
+            let clicks = 0;
+            let start = 0;
+
+            let wait = null;
+            const x = document.getElementById('x');
+            x.addEventListener('click', function() {
+                if (wait === null) restart();
+
+                clicks++;
+                update();
+                clearTimeout(wait);
+                wait = setTimeout(function() { wait = null; restart(); }, 1000);
+            });
+
+            function round(n, p) {
+                const f = Math.pow(10, p);
+                return Math.round(n * f) / f;
+            }
+
+            function restart() {
+                start = performance.now();
+                clicks = 0;
+                update();
+            }
+            const c = document.getElementById('cps');
+            function update() {
+                if (clicks) c.innerText = `CPS: ${round(clicks / ((performance.now() - start) / 1000), 2)}`;
+                else c.innerText = 'CPS: Waiting';
+            }
+
+            // setInterval(update, 1000);
+        </script>
+    </body>
+    </html>
+
