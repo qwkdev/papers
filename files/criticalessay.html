@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higher English: The Critical Thinking Cascade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F3F4F6; color: #1F2937; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin-left: auto; margin-right: auto; height: 350px; max-height: 400px; }
+        @media (min-width: 768px) { .chart-container { height: 400px; } }
+        .card { background-color: white; border-radius: 0.5rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); padding: 1.5rem; margin-bottom: 1.5rem; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); }
+        .gradient-text { background-clip: text; -webkit-background-clip: text; color: transparent; background-image: linear-gradient(to right, #4F46E5, #9333EA); }
+        .step-number { background: #4F46E5; color: white; width: 2rem; height: 2rem; display: flex; align-items: center; justify-content: center; border-radius: 9999px; font-weight: bold; margin-right: 0.75rem; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-indigo-600">Critical<span class="text-gray-800">Cascade</span></span>
+                </div>
+                <div class="flex items-center space-x-4 text-sm font-medium text-gray-500">
+                    <a href="#cascade" class="hover:text-indigo-600">The Model</a>
+                    <a href="#mechanics" class="hover:text-indigo-600">Mechanics</a>
+                    <a href="#examples" class="hover:text-indigo-600">Examples</a>
+                    <a href="#checklist" class="hover:text-indigo-600">Checklist</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-indigo-700 text-white py-20">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 tracking-tight">From Understanding to Evaluation</h1>
+            <p class="text-xl md:text-2xl text-indigo-100 max-w-3xl mx-auto">Mastering the art of the Higher English Critical Essay. Move beyond simple explanation and start judging effectiveness.</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <section id="cascade">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4">The Critical Thinking Cascade</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">An essay is not a flat list of facts; it is a staircase. You must build a foundation of Understanding before you can construct Analysis, and you must analyze the mechanics before you can reach the summit of Evaluation.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="space-y-6">
+                    <div class="card border-l-8 border-blue-500">
+                        <div class="flex items-center mb-2">
+                            <div class="step-number bg-blue-500">1</div>
+                            <h3 class="text-xl font-bold text-gray-900">Understanding (The Foundation)</h3>
+                        </div>
+                        <p class="text-gray-600 mb-2"><strong>Focus:</strong> The "What"</p>
+                        <p class="text-sm text-gray-500">Identifying plot, characters, and themes. Proving you know what is happening in the text.</p>
+                    </div>
+
+                    <div class="card border-l-8 border-indigo-500 ml-4 md:ml-8">
+                        <div class="flex items-center mb-2">
+                            <div class="step-number bg-indigo-500">2</div>
+                            <h3 class="text-xl font-bold text-gray-900">Analysis (The Engine)</h3>
+                        </div>
+                        <p class="text-gray-600 mb-2"><strong>Focus:</strong> The "How"</p>
+                        <p class="text-sm text-gray-500">Breaking down techniques (Imagery, Tone, Structure). Explaining how the writer creates effects.</p>
+                    </div>
+
+                    <div class="card border-l-8 border-purple-600 ml-8 md:ml-16">
+                        <div class="flex items-center mb-2">
+                            <div class="step-number bg-purple-600">3</div>
+                            <h3 class="text-xl font-bold text-gray-900">Evaluation (The Summit)</h3>
+                        </div>
+                        <p class="text-gray-600 mb-2"><strong>Focus:</strong> The "How Well"</p>
+                        <p class="text-sm text-gray-500">Judging effectiveness. Linking techniques to the theme and the impact on the audience.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4 text-center">Cognitive Load Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="cascadeChart"></canvas>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4 text-center italic">A strong essay balances these three elements, with Evaluation resting on top of deep Analysis.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="mechanics" class="bg-white rounded-xl shadow-sm p-8 border border-gray-200">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900">Analysis vs. Evaluation</h2>
+                    <p class="text-gray-600 mb-6">Many students confuse these two skills. Analysis is the work of a <strong>Mechanic</strong>—taking the engine apart to see how it works. Evaluation is the work of a <strong>Judge</strong>—deciding if the engine performs well for its intended purpose.</p>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
+                            <h4 class="font-bold text-indigo-700 flex items-center"><span class="text-xl mr-2">⚙️</span> Analysis (The Mechanic)</h4>
+                            <p class="text-sm mt-1"><strong>Task:</strong> Identify the technique.</p>
+                            <p class="text-sm"><strong>Question:</strong> How does this word create a specific image?</p>
+                            <p class="text-sm"><strong>Keywords:</strong> Suggests, Conveys, Implies.</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                            <h4 class="font-bold text-purple-700 flex items-center"><span class="text-xl mr-2">⚖️</span> Evaluation (The Judge)</h4>
+                            <p class="text-sm mt-1"><strong>Task:</strong> Judge the effectiveness.</p>
+                            <p class="text-sm"><strong>Question:</strong> Why is this effective in revealing the theme?</p>
+                            <p class="text-sm"><strong>Keywords:</strong> Masterfully, Effectively, Poignantly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4 text-center">Skill Focus Comparison</h3>
+                    <div class="chart-container">
+                        <canvas id="comparisonChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="examples">
+            <h2 class="text-3xl font-bold mb-8 text-center">Case Study: Othello</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">Comparing a "C-grade" response to an "A-grade" response on the theme of jealousy. Notice how the enriched response bridges the gap between explaining the plot and judging the writer's craft.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <div class="card border-t-4 border-red-400">
+                    <h3 class="text-xl font-bold text-red-600 mb-2">Exemplar 1: Underdeveloped</h3>
+                    <div class="h-1 w-full bg-gray-100 mb-4 rounded">
+                        <div class="h-1 bg-red-400 rounded" style="width: 40%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 font-mono uppercase tracking-wide">Focus: Plot Summary</p>
+                    <div class="prose prose-sm text-gray-700 bg-gray-50 p-4 rounded mb-4">
+                        <p class="mb-2">"Iago begins to plant seeds of doubt in Othello’s mind about Desdemona and Cassio. We see Othello start to change and become consumed by jealousy. He says: 'I’ll tear her all to pieces!' This shows how angry Othello has become... This explores the theme because it shows how jealousy can destroy someone’s life."</p>
+                    </div>
+                    <ul class="text-sm space-y-2 text-red-700">
+                        <li class="flex items-start"><span class="mr-2">⚠</span> <strong>Topic Sentence:</strong> Focused on story events.</li>
+                        <li class="flex items-start"><span class="mr-2">⚠</span> <strong>Analysis:</strong> Translates the quote ("shows he is angry").</li>
+                        <li class="flex items-start"><span class="mr-2">⚠</span> <strong>Evaluation:</strong> Generic statement ("jealousy destroys lives").</li>
+                    </ul>
+                </div>
+
+                <div class="card border-t-4 border-green-500">
+                    <h3 class="text-xl font-bold text-green-600 mb-2">Exemplar 2: Enriched</h3>
+                    <div class="h-1 w-full bg-gray-100 mb-4 rounded">
+                        <div class="h-1 bg-green-500 rounded" style="width: 90%"></div>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4 font-mono uppercase tracking-wide">Focus: Technique & Impact</p>
+                    <div class="prose prose-sm text-gray-700 bg-gray-50 p-4 rounded mb-4">
+                        <p class="mb-2">"Othello’s language... begins to fracture. Shakespeare uses violent, visceral imagery to signal Othello’s internal collapse: 'I'll tear her all to pieces!' The brutality of this exclamation marks the death of Othello’s reason... This contributes to our appreciation... by highlighting the 'tragic flaw'. The audience feels a profound sense of catharsis..."</p>
+                    </div>
+                    <ul class="text-sm space-y-2 text-green-700">
+                        <li class="flex items-start"><span class="mr-2">✓</span> <strong>Topic Sentence:</strong> Focused on technique (language fracture).</li>
+                        <li class="flex items-start"><span class="mr-2">✓</span> <strong>Analysis:</strong> Explores connotations ("visceral imagery," "death of reason").</li>
+                        <li class="flex items-start"><span class="mr-2">✓</span> <strong>Evaluation:</strong> Discusses audience impact ("catharsis," "tragic flaw").</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mt-8 bg-white p-6 rounded-lg shadow-md">
+                 <h3 class="text-lg font-semibold text-gray-700 mb-4 text-center">Score Profile Projection</h3>
+                 <div class="chart-container">
+                    <canvas id="radarChart"></canvas>
+                 </div>
+                 <p class="text-sm text-center text-gray-500 mt-4">The 'Enriched' response scores significantly higher on Vocabulary, Critical Terminology, and Thematic Linking.</p>
+            </div>
+        </section>
+
+        <section id="checklist" class="mb-12">
+            <h2 class="text-3xl font-bold mb-8">The Success Checklist</h2>
+            <p class="text-gray-600 mb-6">Use these questions and sentence starters to verify your work before submitting.</p>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+                    <thead class="bg-indigo-600 text-white">
+                        <tr>
+                            <th class="py-3 px-6 text-left font-semibold uppercase text-sm">Level</th>
+                            <th class="py-3 px-6 text-left font-semibold uppercase text-sm">Question to Ask Yourself</th>
+                            <th class="py-3 px-6 text-left font-semibold uppercase text-sm">Starter Phrases</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700">
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-4 px-6 font-bold text-blue-600">Understanding</td>
+                            <td class="py-4 px-6">What is the context of this moment?</td>
+                            <td class="py-4 px-6 italic">"At this point in the play..." / "Othello reacts by..."</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-4 px-6 font-bold text-indigo-600">Analysis</td>
+                            <td class="py-4 px-6">Which specific words have the most impact?</td>
+                            <td class="py-4 px-6 italic">"The word '...' suggests..." / "The metaphor implies..."</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-6 font-bold text-purple-600">Evaluation</td>
+                            <td class="py-4 px-6">How does this help me understand the play?</td>
+                            <td class="py-4 px-6 italic">"This effectively illustrates..." / "Shakespeare masterfully reveals..."</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-10 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-4">Higher English Critical Essay Resources</p>
+            <p class="text-sm text-gray-500">Visualization of Analysis & Evaluation Mechanics</p>
+        </div>
+    </footer>
+
+<script>fetch('https://qwk.pythonanywhere.com/l/sqa-files-criticalessay');</script>
+    
+    <script>
+        // --- UTILITY FUNCTIONS ---
+        
+        // Label wrapping logic for Chart.js (max 16 chars)
+        function wrapLabel(str, maxLen = 16) {
+            if (str.length <= maxLen) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxLen) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Standard Tooltip Configuration for Multi-line labels
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART GENERATION ---
+
+        // Chart 1: The Cascade (Visualizing the "Staircase" or Funnel)
+        const ctxCascade = document.getElementById('cascadeChart').getContext('2d');
+        new Chart(ctxCascade, {
+            type: 'bar',
+            data: {
+                labels: ['Understanding', 'Analysis', 'Evaluation'],
+                datasets: [{
+                    label: 'Depth of Cognition',
+                    data: [30, 60, 100],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.8)', // Blue
+                        'rgba(79, 70, 229, 0.8)', // Indigo
+                        'rgba(147, 51, 234, 0.8)'  // Purple
+                    ],
+                    borderColor: [
+                        'rgba(59, 130, 246, 1)',
+                        'rgba(79, 70, 229, 1)',
+                        'rgba(147, 51, 234, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y', // Horizontal bar to look like layers/steps
+                scales: {
+                    x: { beginAtZero: true, max: 100, title: { display: true, text: 'Mark Potential (%)' } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        // Chart 2: Analysis vs Evaluation Comparison
+        const ctxComp = document.getElementById('comparisonChart').getContext('2d');
+        const rawLabelsComp = ['Objective Fact Finding', 'Technical Breakdown', 'Subjective Judgment', 'Thematic Connection', 'Author Purpose'];
+        const processedLabelsComp = rawLabelsComp.map(l => wrapLabel(l));
+
+        new Chart(ctxComp, {
+            type: 'bar',
+            data: {
+                labels: processedLabelsComp,
+                datasets: [
+                    {
+                        label: 'Analysis Focus',
+                        data: [90, 100, 20, 40, 30],
+                        backgroundColor: 'rgba(79, 70, 229, 0.7)',
+                        borderColor: 'rgba(79, 70, 229, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Evaluation Focus',
+                        data: [20, 40, 100, 100, 95],
+                        backgroundColor: 'rgba(147, 51, 234, 0.7)',
+                        borderColor: 'rgba(147, 51, 234, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, max: 100 }
+                },
+                plugins: {
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        // Chart 3: Radar Chart for Essay Quality
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        const rawLabelsRadar = ['Plot Knowledge', 'Technique ID', 'Word Choice Analysis', 'Literary Terminology', 'Audience Impact', 'Theme Link'];
+        const processedLabelsRadar = rawLabelsRadar.map(l => wrapLabel(l));
+
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: processedLabelsRadar,
+                datasets: [{
+                    label: 'Underdeveloped Response',
+                    data: [90, 40, 30, 20, 10, 30],
+                    fill: true,
+                    backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                    borderColor: 'rgb(239, 68, 68)',
+                    pointBackgroundColor: 'rgb(239, 68, 68)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(239, 68, 68)'
+                }, {
+                    label: 'Enriched Response',
+                    data: [90, 90, 95, 90, 95, 100],
+                    fill: true,
+                    backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                    borderColor: 'rgb(16, 185, 129)',
+                    pointBackgroundColor: 'rgb(16, 185, 129)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(16, 185, 129)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { display: true },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
