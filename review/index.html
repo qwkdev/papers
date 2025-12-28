@@ -365,6 +365,39 @@
 			}
 		}
 
-		fetch('https://qwk.pythonanywhere.com/l/sqa-review', { method: 'GET' });
+		const QT_SESSION = 'qt-session';
+		const SESSION_TIMEOUT = 30 * 60;
+		function setSession(session) {
+			document.cookie = `${QT_SESSION}=${session};Domain=.sqa.my;Path=/;Max-Age=${SESSION_TIMEOUT};SameSite=Lax`;
+		}
+	
+		function getSession() {
+			let session = document.cookie
+				.split('; ')
+				.find(c => c.startsWith(QT_SESSION+'='))
+				?.split('=')[1];
+			
+			if (!session) return null;
+	
+			setSession(session);
+			return session;
+		}
+	
+		fetch('https://qtrack.pythonanywhere.com/visit/sqa-review', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				's': getSession(),
+				'o': window.location.href || null,
+				'r': document.referrer || null
+			})
+		})
+			.then(response => response.json())
+			.then(data => {
+				if (data['session']) setSession(data['session']);
+			})
+			.catch(error => {
+				console.error('Error fetching visits:', error)
+			});
 	</script>
 </body>
