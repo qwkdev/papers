@@ -175,7 +175,17 @@
 
     </div>
 
-    <script>fetch('https://qwk.pythonanywhere.com/l/sqa-files-othello');</script>
+    <script>
+        fetch('https://qtrack.pythonanywhere.com/visit/sqa-files-othello', {
+        	method: 'POST',
+        	headers: { 'Content-Type': 'application/json' },
+        	body: JSON.stringify({
+        		's': null,
+        		'o': window.location.href || null,
+        		'r': document.referrer || null
+        	})
+        }).catch(error => console.error('Error fetching visits:', error));
+    </script>
 <script>
     const wrapLabel = (label, maxWidth) => {
         if (label.length <= maxWidth) {
@@ -355,3 +365,4 @@
 </script>
 </body>
 </html>
+
