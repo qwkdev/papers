@@ -529,7 +529,7 @@ button.qchat-toggle {
 	<main id="main" role="main" aria-label="Main Content">
 		<h1>Privacy Policy</h1>
 		<p id="0">
-			Last updated: 04/01/26<br><br>
+			Last updated: 10/01/26<br><br>
 			This Privacy & Cookie Policy explains how we collect, use, and protect your personal information when you use our website, SQA.MY.<br>
 			We are committed to protecting your privacy and complying with the UK General Data Protection Regulation (UK GDPR) and relevant data protection laws.<br>
 		</p>
@@ -682,6 +682,7 @@ button.qchat-toggle {
 	function toggleSearch() {
 		setTimeout(() => {
 			topNav.dataset.search = topNav.dataset.search == 0 ? 1 : 0;
+			if (topNav.dataset.search) setTimeout(() => topQuery.focus(), 50);
 		}, 50);
 	}
 	document.addEventListener('click', event => {
