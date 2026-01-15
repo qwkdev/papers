@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="Timer | Tools and Utilities from SQA.MY">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="color-scheme" content="dark light">
+	<meta name="author" content="qwk">
+	<meta property="og:title" content="sqa.my/timer">
+	<meta property="og:description" content="Timer | Tools and Utilities from SQA.MY">
+	<meta property="og:type" content="website">
+	<meta property="og:site_name" content="sqa.my">
+	<meta property="og:locale" content="en_GB">
+
+	<meta property="og:image" content="https://og.tailgraph.com/og?fontFamily=Montserrat&title=Timer&titleTailwind=font-bold%20text-6xl%20text-white&text=Tools and Utilities from SQA.MY&textTailwind=text-2xl%20mt-4%20bg-blueGray-300%20text-gray-300&logoUrl=&logoTailwind=h-8&bgTailwind=bg-black&footer=sqa.my&footerTailwind=text-blue-400%20text-3xl&t=1744575448853&refresh=1">
+	<meta property="og:image:alt" content="sqa.my">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="sqa.my">
+	<meta name="twitter:site" content="@qwkdev">
+	<meta name="twitter:description" content="Timer | Tools and Utilities from SQA.MY">
+	<meta name="twitter:image" content="https://og.tailgraph.com/og?fontFamily=Montserrat&title=Timer&titleTailwind=font-bold%20text-6xl%20text-white&text=Tools and Utilities from SQA.MY&textTailwind=text-2xl%20mt-4%20bg-blueGray-300%20text-gray-300&logoUrl=&logoTailwind=h-8&bgTailwind=bg-black&footer=sqa.my&footerTailwind=text-blue-400%20text-3xl&t=1744575448853&refresh=1">
+	<meta name="twitter:image:alt" content="sqa.my">
+
+	<title>Timer | sqa.my/timer</title>
+
+	<style>
+		.underlined {
+			color: var(--ucolor, #fff);
+			font-weight: 500;
+			position: relative;
+			transition: .2s;
+			z-index: 2;
+			text-decoration: none;
+		}
+		.underline {
+			--widen: 0%;
+			--fix: 0%;
+			width: calc(100% + var(--widen));
+			transform: translateX(calc(-100% + var(--fix)));
+			height: 1px;
+			background: var(--ucolor, #fff);
+			position: absolute;
+			bottom: 0;
+			transition: .2s;
+			z-index: -1;
+		}
+		.underlined:hover {
+			color: var(--ubg, #000);
+		}
+		.underlined:hover .underline {
+			height: 100%;
+		}
+		.underlined::selection {
+			background: var(--ucolor2, #ffffff55);
+		}
+		#banner {
+			position: fixed;
+			top: 1vh;
+			left: 2vh;
+
+			font-family: monospace;
+			font-size: 2vh;
+
+			--ucolor: #777;
+			--ucolor2: #77777755;
+			--ubg: #000;
+		}
+
+		body {
+			margin: 0;
+			background: #000;
+		}
+		#clock {
+			--size: 20vw;
+
+			margin: 0;
+
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+			font-size: var(--size);
+			color: #fff;
+			font-family: Arial, monospace;			
+			text-align: center;
+		}
+		#clock::selection {
+			background: #fafaff77;
+		}
+	</style>
+</head>
+<body>
+	<div id="banner"><span><a class="underlined" href="/" aria-label="Home Page">sqa.my/timer<span class="underline" style="--widen: 2%; --fix: 1%;"></span></a></span></div>
+	<p id="clock"></p>
+
+	<script>
+		const pad = (n) => String(n).padStart(2, '0');
+		function updateTimer() {
+			const now = performance.now()/1000;
+			const mins = now/60;
+			document.getElementById('clock').textContent = [mins/60, mins%60, now%60].map(Math.floor).map(pad).join(':');
+		}
+
+		updateTimer();
+		setInterval(updateTimer, 1000);
+		
+		document.addEventListener('dblclick', () => {
+			if (!document.fullscreenElement) { 
+				document.documentElement.requestFullscreen();
+			} else {
+				document.exitFullscreen();
+			}
+		});
+	</script>
+	<script>
+		fetch('https://qtrack.pythonanywhere.com/visit/sqa-tools-timer', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({
+				's': null,
+				'o': window.location.href || null,
+				'r': document.referrer || null
+			})
+		}).catch(error => console.error('Error fetching visits:', error));
+	</script>
+</body>
+</html>
