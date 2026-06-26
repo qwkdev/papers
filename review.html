@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/sqa/refs/heads/main/icon.ico" type="image/x-icon">
-	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/sqa/refs/heads/main/icon.png" type="image/png" sizes="32x32">
-	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/sqa/refs/heads/main/icon.svg" type="image/svg+xml">
+	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/papers/refs/heads/main/icon.ico" type="image/x-icon">
+	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/papers/refs/heads/main/icon.png" type="image/png" sizes="32x32">
+	<link rel="icon" href="https://raw.githubusercontent.com/qwkdev/papers/refs/heads/main/icon.svg" type="image/svg+xml">
 
 	<title>Leave a Review</title>
 	<style>
@@ -343,7 +343,7 @@
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify({
-						ref: 'SQA-Review',
+						ref: 'Papers-Review',
 						msg: text,
 						name: name,
 						rating: rating
@@ -368,7 +368,7 @@
 		const QT_SESSION = 'qt-session';
 		const SESSION_TIMEOUT = 30 * 60;
 		function setSession(session) {
-			document.cookie = `${QT_SESSION}=${session};Domain=.sqa.my;Path=/;Max-Age=${SESSION_TIMEOUT};SameSite=Lax`;
+			document.cookie = `${QT_SESSION}=${session};Domain=.scotpapers.com;Path=/;Max-Age=${SESSION_TIMEOUT};SameSite=Lax`;
 		}
 	
 		function getSession() {
@@ -383,7 +383,7 @@
 			return session;
 		}
 	
-		fetch('https://qtrack.pythonanywhere.com/visit/sqa-review', {
+		fetch('https://qtrack.pythonanywhere.com/visit/p-review', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
