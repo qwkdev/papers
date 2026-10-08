@@ -279,11 +279,13 @@
 	</div>
 
 	<div id="success" hidden>
-		<h1>contact.qwk.zone</h1>
+		<h1>scotpapers.com</h1>
 		<p>
-			Your message has been sent and is viewable 
+			<!-- Your message has been sent and is viewable 
 			<span><a class="underlined" href="https://contact.qwk.zone/">here<span class="underline" style="--widen: 3%; --fix: 1.7%;"></span></a></span><br>
-			Check back as I'll respond as soon as I can.<br>
+			Check back as I'll respond as soon as I can.<br> -->
+
+			Your review has been sent and will be added soon.
 			<br>
 			Please note that reviews are not added automatically,<br>
 			I manually review all of these and will not add bogus reviews, thanks.
@@ -314,15 +316,15 @@
 				nameInput.value.length > 0 &&
 				['star1', 'star2', 'star3', 'star4', 'star5'].some(star => document.getElementById(star).innerHTML == '★')
 			) {
-				document.getElementById("submit").classList.remove("grey");
+				document.getElementById('submit').classList.remove('grey');
 			} else {
-				document.getElementById("submit").classList.add("grey");
+				document.getElementById('submit').classList.add('grey');
 			}
 		}
 
 		textInput.addEventListener('input', check);
 		nameInput.addEventListener('input', check);
-		document.getElementById("stars").addEventListener('click', check);
+		document.getElementById('stars').addEventListener('click', check);
 
 		const after = {
 			main: document.getElementById('main'),
@@ -332,22 +334,18 @@
 		}
 
 		function submit() {
-			const text = textInput.value;
+			const msg = textInput.value;
 			const name = nameInput.value;
 			const rating = [...Array(5).keys()].map(i => document.getElementById('star' + (i + 1)).innerHTML == '★' ? 1 : 0).reduce((a, b) => a + b, 0);
 
-			if (text.length > 0 && name.length > 0 && rating > 0) {
-				fetch('https://qwk.pythonanywhere.com/contact/send', {
+			if (msg.length > 0 && name.length > 0 && rating > 0) {
+				fetch('https://qwk.pythonanywhere.com/review', {
 					method: 'POST',
 					headers: {
-						"Content-Type": "application/json"
+						'Content-Type': 'application/json',
+						'Accept': 'application/json'
 					},
-					body: JSON.stringify({
-						ref: 'Papers-Review',
-						msg: text,
-						name: name,
-						rating: rating
-					})
+					body: JSON.stringify({ msg, name, rating })
 				})
 					.then(resp => resp.json())
 					.then(data => {
