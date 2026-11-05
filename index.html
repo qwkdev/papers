@@ -962,6 +962,82 @@ dialog {
 			gap: calc(1.3 * var(--u));
 		}
 		
+		#faq {
+			width: calc(100vw - 10 * var(--u));
+			height: min-content;
+			margin: 0 auto;
+		}
+		#faq h2 {
+			font-family: Arial;
+			color: #fff;
+			margin: 0;
+			font-weight: 700;
+			font-size: calc(2.75 * var(--u));
+			margin-top: calc(4 * var(--u));
+			width: min-content;
+			background: var(--glass-bg);
+			border: calc(.2 * var(--u)) solid var(--glass-border);
+			border-radius: calc(2 * var(--u));
+			box-sizing: border-box;
+			padding: calc(1.5 * var(--u)) calc(1.7 * var(--u)) calc(1.4 * var(--u)) calc(1.8 * var(--u));
+		}
+		#faq h2::selection {
+			background: #fff5;
+		}
+		#faq div {
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			border-bottom: calc(.2 * var(--u)) solid var(--glass-border);
+			position: relative;
+			overflow: hidden;
+			transition: .2s;
+		}
+		#faq div:last-child {
+			border: none;
+		}
+		#faq div h3, #faq div p {
+			font-family: Arial;
+			color: #fff;
+			margin: 0;
+		}
+		#faq div h3 {
+			font-size: calc(2.5 * var(--u));
+			line-height: calc(8 * var(--u));
+			user-select: none;
+			font-weight: 700;
+		}
+		#faq div p {
+			font-size: calc(1.75 * var(--u));
+			grid-column: 1 / 3;
+			display: grid;
+			grid-template-rows: 0fr;
+			transition: .2s;
+		}
+		#faq div p >span {
+			overflow: hidden;
+			margin-bottom: calc(1 * var(--u));
+		}
+		#faq div p >span::selection {
+			background: #fff5;
+		}
+		#faq div svg {
+			margin-right: calc(1.6 * var(--u));
+			transform: rotate(-90deg);
+			align-self: center;
+			height: 50%;
+			aspect-ratio: 1/1;
+			stroke: #fff;
+			transition: .2s;
+		}
+		#faq div[data-value="1"] p {
+			grid-template-rows: 1fr;
+		}
+		#faq div[data-value="1"] svg {
+			margin-right: calc(1.7 * var(--u));
+			transform: rotate(0deg);
+		}
+
 		@media only screen and (min-aspect-ratio: 1/1) {
 			#line {
 				top: calc(var(--top-margin) - (5 * (1vw - 1vh)));
@@ -1044,14 +1120,7 @@ dialog {
 							<stop offset="82.5%" stop-color="#7770" />
 						</linearGradient>
 					</defs>
-					<ellipse
-						cx="500"
-						cy="250"
-						rx="500"
-						ry="200"
-						stroke="url(#lineGradient)"
-						fill="none"
-					/>
+					<ellipse cx="500" cy="250" rx="500" ry="200" stroke="url(#lineGradient)" fill="none"/>
 				</svg>
 			</div>
 		</div>
@@ -1145,115 +1214,46 @@ dialog {
 					Wishing everyone the best of luck with exams!
 				</p>
 			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>Updates</h1>
-					<h2>15/02/26</h2>
-				</div>
-				<p>
-					Removed the snow, will be adding new/removing old reviews soon.<br>
-					Also, qchat has moved to a new domain: <span><a class="underlined" href="https://qchat.lol/papers" target="_blank">qchat.lol/papers<span class="underline" style="--widen: 4%; --fix: 2%"></span></a></span>
-				</p>
+		</section>
+
+		<svg hidden>
+			<symbol id="icon-toggle" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+			</symbol>
+		</svg>
+
+		
+		<section id="faq">
+			<h2>FAQ</h2>
+			<div onclick="faqToggle(this)">
+				<h3>Who made ScotPapers?</h3>
+				<svg><use href="#icon-toggle"/></svg>
+				<p><span>Hi, I'm QWK and I made ScotPapers.<br>I'm a Scottish student in S6 looking to study Computing Science at university.</span></p>
 			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>Updates</h1>
-					<h2>15/01/26</h2>
-				</div>
-				<p>
-					Late happy new year to everyone, hope prelims went well.<br>
-					Might? need to remove the chat due to it being abused,<br>
-					and leading to the site getting blocked by some schools<br>
-					Also removed the santa hat, but the snow will stay for longer.<br>
-					<br>
-					If your school/council has blocked the site, feel free to message me <span><a class="underlined" href="https://contact.qwk.zone/Papers" target="_blank">here<span class="underline" style="--widen: 6%; --fix: 2%"></span></a></span> or in the contact box<br>
-					with their name/email or etc if I need to message them about unblocking the site,<br>
-					or to protest the (potential) removal of the chat
-				</p>
+			<div onclick="faqToggle(this)">
+				<h3>Do you make money from this?</h3>
+				<svg><use href="#icon-toggle"/></svg>
+				<p><span>No, sadly not</span></p>
 			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>Christmas Update</h1>
-					<h2>13/12/25</h2>
-				</div>
-				<p>
-					Added some snow along with a much needed overhaul of the contact system<br>
-					Also added a santa hat, thanks to @ollie and "hi" for the idea.<br>
-					Let me know what else I should add or if the snow is annoying<br>
-					<br>
-					Added the rest of 2025's course reports<br>
-					Added Nat 5 Admin & IT papers, thanks to "Wadood" for the files.
-				</p>
+			<div onclick="faqToggle(this)">
+				<h3>Is this vibe coded / Do you use AI?</h3>
+				<svg><use href="#icon-toggle"/></svg>
+				<p><span>No, everything has been hand coded by me,<br>and all the moderation/sorting is done manually by humans</span></p>
 			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>We need your help!</h1>
-					<h2>03/11/25</h2>
-				</div>
-				<p>
-					We are looking for <b>YOUR</b> help with sorting/categorising questions by topic!<br>
-					If you are able to help, especially with nicher subjects,<br>
-					please send me a message <span><a class="underlined" href="https://contact.qwk.zone/Papers-Help" target="_blank">here<span class="underline" style="--widen: 6%; --fix: 2%"></span></a></span> or in the contact box with preferably your <b>discord</b>,<br>
-					or any other way that we can contact.<br>
-					<br>
-					While for some subjects the resources exist online,<br>
-					for the subjects I don't study it's unreasonable (or even impossible)<br>
-					to accurately sort these questions.<br>
-					<br>
-					All we are looking for is for you to provide a list of topics,<br>
-					and what questions from past papers belong to them.<br>
-					It doesn't need to be in some special format, whatever works best for you.<br>
-					Even if you only do one or two papers, any help is greatly appreciated.
-				</p>
+			<div onclick="faqToggle(this)">
+				<h3>Where do you get these papers from?</h3>
+				<svg><use href="#icon-toggle"/></svg>
+				<p><span>All over the internet.<br><br>Scotpapers is an archival website, which means that any past paper<br>you can find here, you can find somewhere else;<br>although that place may be the tenth page of Google.<br><br>I've made this as an easy to access archive for every subject from 2015 I can find online.</span></p>
 			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>ScotPapers's new look</h1>
-					<h2>03/11/25</h2>
-				</div>
-				<p>
-					ScotPapers has been updated visually, with a new homepage,<br>
-					and misc improvements to all pages.<br>
-					Please give feedback on what you think about it!
-				</p>
+			<div onclick="faqToggle(this)">
+				<h3>Can you add a subject?</h3>
+				<svg><use href="#icon-toggle"/></svg>
+				<p><span>If you have the files or know where to get them, then 100% yes!<br>Email me them at: <span><a class="underlined" href="mailto:qwk.contact@gmail.com">qwk.contact@gmail.com<span class="underline" style="--widen: 2%; --fix: 1%;"></span></a></span><br><br>If you don't have any files, I can try my best but often older papers are impossible to find,<br>especially the audio files for modern languages</span></p>
 			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>Added a chat accross the site</h1>
-					<h2>18/10/25</h2>
-				</div>
-				<p>
-					Added a very basic chat app across the site,<br>
-					feel free to chat about anything.<br>
-					If it gets out of hand or if people don't like I can remove it,<br>
-					but let me know what you think.
-				</p>
-			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>2025 resources are out!</h1>
-					<h2>15/09/25</h2>
-				</div>
-				<p>
-					Added 2025 past papers, marking schemes and resources for all subjects.<br>
-					Not all course reports are out yet, but those that are have been added.
-				</p>
-			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>Added 2025 Grade Boundaries</h1>
-					<h2>06/08/25</h2>
-				</div>
-			</div>
-			<div class="notice">
-				<div class="notice-title">
-					<h1>Added Higher Admin & IT papers</h1>
-					<h2>11/07/25</h2>
-				</div>
-				<p>
-					Added Higher Administration and IT past papers and marking schemes for 2015 onwards.<br>
-					Thanks to those who requested them.
-				</p>
+			<div onclick="faqToggle(this)">
+				<h3>How can I get in contact?</h3>
+				<svg><use href="#icon-toggle"/></svg>
+				<p><span>Leave an inquiry with your email/discord <span><a class="underlined" href="https://contact.qwk.zone/Papers">here<span class="underline" style="--widen: 2%; --fix: 1%;"></span></a></span>.<br>Me/my mods will go through these requests occasionally, so please have patience and please don't fill up the inquiry board with bogus reviews!</span></p>
 			</div>
 		</section>
 	</main>
@@ -1388,6 +1388,9 @@ dialog {
 		});
 </script>
 	<script>
+		function faqToggle(ele) {
+			ele.dataset.value = ele.dataset.value === '1' ? '0' : '1';
+		}
 		
 		async function getReviews(amt=25) {
 			const reviewsWrapper = document.getElementById('reviews-wrapper');
