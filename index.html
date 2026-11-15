@@ -554,6 +554,7 @@ dialog {
 	font-weight: 500;
 	font-size: calc(3 * var(--u));
 	color: #fff;
+	transition: .5s;
 }
 #finder2 #query:focus {
 	outline: none;
@@ -579,6 +580,7 @@ dialog {
 	--height: calc(6 * var(--u));
 	max-height: calc(var(--height) * 4);
 	overflow-y: scroll;
+	transition: .5s;
 }
 #finder2 #results2 a {
 	padding: 0 calc(var(--height) * .2);
@@ -591,6 +593,7 @@ dialog {
 	font-size: calc(var(--height) * .5);
 	line-height: var(--height);
 	text-decoration: none;
+	transition: .5s;
 }
 #finder2 #results2 a:hover {
 	background: var(--glass-bg-hover2);
@@ -622,9 +625,6 @@ dialog {
 #finder2 #query:has(+ #results2:not([hidden])) {
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
-}
-#finder2 #query, #finder2 #results2, #finder2 #results2 a {
-	transition: .5s;
 }
 #line {
 	--top-margin: calc(var(--top-height) + (40 * var(--u)));
